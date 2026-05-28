@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Light Mode */
+  --l1: #2563eb; /* Primary */
+  --l2: #7c3aed; /* Secondary */
+
+  --l3: #ffffff;
+  --l4: #f8fafc;
+  --l5: #e2e8f0;
+  --l6: #cbd5e1;
+
+  /* Light Hover States */
+  --lh1: #1d4ed8;
+  --lh2: #6d28d9;
+  --lh3: #f8fafc;
+  --lh4: #f1f5f9;
+  --lh5: #cbd5e1;
+  --lh6: #94a3b8;
+
+  /* Dark Mode */
+  --d1: #60a5fa; /* Primary */
+  --d2: #a78bfa; /* Secondary */
+
+  --d3: #18181b;
+  --d4: #27272a;
+  --d5: #3f3f46;
+  --d6: #52525b;
+
+  /* Dark Hover States */
+  --dh1: #93c5fd;
+  --dh2: #c4b5fd;
+  --dh3: #27272a;
+  --dh4: #3f3f46;
+  --dh5: #52525b;
+  --dh6: #71717a;
+}
+
+@theme inline {
+  /* Core */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Light Colors */
+  --color-l1: var(--l1);
+  --color-l2: var(--l2);
+  --color-l3: var(--l3);
+  --color-l4: var(--l4);
+  --color-l5: var(--l5);
+  --color-l6: var(--l6);
+
+  /* Light Hover Colors */
+  --color-lh1: var(--lh1);
+  --color-lh2: var(--lh2);
+  --color-lh3: var(--lh3);
+  --color-lh4: var(--lh4);
+  --color-lh5: var(--lh5);
+  --color-lh6: var(--lh6);
+
+  /* Dark Colors */
+  --color-d1: var(--d1);
+  --color-d2: var(--d2);
+  --color-d3: var(--d3);
+  --color-d4: var(--d4);
+  --color-d5: var(--d5);
+  --color-d6: var(--d6);
+
+  /* Dark Hover Colors */
+  --color-dh1: var(--dh1);
+  --color-dh2: var(--dh2);
+  --color-dh3: var(--dh3);
+  --color-dh4: var(--dh4);
+  --color-dh5: var(--dh5);
+  --color-dh6: var(--dh6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #18181b;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
