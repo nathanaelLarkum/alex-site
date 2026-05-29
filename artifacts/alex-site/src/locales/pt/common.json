@@ -1,0 +1,12 @@
+{
+  "footer": {
+    "copyright": "© {year} Elena Vasquez. Todos os direitos reservados.",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "not_found": {
+    "title": "Página não encontrada",
+    "description": "Você esqueceu de adicionar a página ao roteador?"
+  }
+}

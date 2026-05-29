@@ -2,6 +2,7 @@ import { useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import type { Artwork } from "@/lib/artwork-data"
+import { useI18n } from "@/i18n"
 
 interface LightboxProps {
   artwork: Artwork | null
@@ -22,19 +23,15 @@ export function Lightbox({
   hasPrevious,
   hasNext,
 }: LightboxProps) {
+  const { t } = useI18n()
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (!isOpen) return
       switch (e.key) {
-        case "Escape":
-          onClose()
-          break
-        case "ArrowLeft":
-          if (hasPrevious) onPrevious()
-          break
-        case "ArrowRight":
-          if (hasNext) onNext()
-          break
+        case "Escape": onClose(); break
+        case "ArrowLeft": if (hasPrevious) onPrevious(); break
+        case "ArrowRight": if (hasNext) onNext(); break
       }
     },
     [isOpen, onClose, onPrevious, onNext, hasPrevious, hasNext]
@@ -51,9 +48,7 @@ export function Lightbox({
     } else {
       document.body.style.overflow = ""
     }
-    return () => {
-      document.body.style.overflow = ""
-    }
+    return () => { document.body.style.overflow = "" }
   }, [isOpen])
 
   if (!artwork) return null
@@ -71,31 +66,32 @@ export function Lightbox({
           aria-modal="true"
           aria-label={`${artwork.title} lightbox`}
         >
-          {/* Close button */}
+          {/* Close */}
           <button
             onClick={onClose}
             className="absolute right-4 top-4 z-50 rounded-full bg-l4 p-2 text-foreground transition-colors hover:bg-lh4 focus:outline-none focus:ring-2 focus:ring-l1"
-            aria-label="Close lightbox"
+            aria-label={t("gallery.lightbox.close")}
           >
             <X className="h-6 w-6" />
           </button>
 
-          {/* Navigation arrows */}
+          {/* Prev */}
           {hasPrevious && (
             <button
               onClick={onPrevious}
               className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-l4 p-2 text-foreground transition-colors hover:bg-lh4 focus:outline-none focus:ring-2 focus:ring-l1 md:left-8"
-              aria-label="Previous artwork"
+              aria-label={t("gallery.lightbox.previous")}
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
           )}
 
+          {/* Next */}
           {hasNext && (
             <button
               onClick={onNext}
               className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-l4 p-2 text-foreground transition-colors hover:bg-lh4 focus:outline-none focus:ring-2 focus:ring-l1 md:right-8"
-              aria-label="Next artwork"
+              aria-label={t("gallery.lightbox.next")}
             >
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -110,7 +106,6 @@ export function Lightbox({
             transition={{ duration: 0.3 }}
             className="flex max-h-full w-full max-w-6xl flex-col gap-6 overflow-auto lg:flex-row lg:items-center"
           >
-            {/* Image */}
             <div className="relative flex-1">
               <img
                 src={artwork.imageUrl}
@@ -121,11 +116,10 @@ export function Lightbox({
               />
             </div>
 
-            {/* Info panel */}
             <div className="flex flex-col gap-4 rounded-lg bg-l3 p-6 lg:w-80 lg:flex-shrink-0">
               <div>
                 <span className="inline-block rounded-full bg-l4 px-3 py-1 text-xs font-medium uppercase tracking-wide text-l6">
-                  {artwork.category}
+                  {t(`gallery.filter.${artwork.category}`)}
                 </span>
               </div>
               <h2 className="text-2xl font-bold text-foreground">{artwork.title}</h2>

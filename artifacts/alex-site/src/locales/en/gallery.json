@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Gallery",
+    "subtitle": "A curated collection of original artworks exploring color, form, and emotion."
+  },
+  "filter": {
+    "all": "All Works",
+    "finished": "Finished",
+    "ongoing": "Ongoing"
+  },
+  "empty": "No artworks found in this category.",
+  "lightbox": {
+    "close": "Close lightbox",
+    "previous": "Previous artwork",
+    "next": "Next artwork",
+    "view_aria": "View {title} — {size} — ${price}"
+  }
+}

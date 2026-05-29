@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title_line1": "Where Art",
+    "title_line2": "Meets Vision",
+    "subtitle": "Contemporary abstract expressionism exploring the boundaries between color, form, and emotion.",
+    "cta_gallery": "View Gallery",
+    "cta_about": "Learn More"
+  },
+  "about": {
+    "eyebrow": "About the Artist",
+    "name": "Elena Vasquez",
+    "bio1": "Born in Barcelona, Elena Vasquez has spent over two decades exploring the interplay between light, color, and human emotion. Her work has been exhibited in galleries across Europe and North America, earning critical acclaim for its bold yet intimate approach to abstract expressionism.",
+    "bio2": "Each piece invites viewers into a dialogue with their own perceptions, challenging the boundaries between the visible and the felt.",
+    "portrait_placeholder": "Artist Portrait"
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "title": "Commission a Piece",
+    "description": "Interested in acquiring a piece or commissioning original work? Reach out to discuss your vision.",
+    "cta": "Contact Studio"
+  }
+}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import type { Artwork } from "@/lib/artwork-data"
+import { useI18n } from "@/i18n"
 
 interface ArtworkCardProps {
   artwork: Artwork
@@ -8,6 +9,8 @@ interface ArtworkCardProps {
 }
 
 export function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
+  const { t } = useI18n()
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -23,7 +26,11 @@ export function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
           onClick()
         }
       }}
-      aria-label={`View ${artwork.title} - ${artwork.size} - $${artwork.price.toLocaleString()}`}
+      aria-label={t("gallery.lightbox.view_aria", {
+        title: artwork.title,
+        size: artwork.size,
+        price: artwork.price.toLocaleString(),
+      })}
     >
       <div className="relative aspect-auto overflow-hidden">
         <img
@@ -34,7 +41,7 @@ export function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
           className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Hover overlay - hidden on mobile */}
+        {/* Hover overlay — hidden on mobile */}
         <div className="absolute inset-0 hidden bg-foreground/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:flex md:flex-col md:items-center md:justify-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -50,7 +57,7 @@ export function ArtworkCard({ artwork, index, onClick }: ArtworkCardProps) {
         </div>
       </div>
 
-      {/* Mobile info - always visible */}
+      {/* Mobile info — always visible */}
       <div className="p-4 md:hidden">
         <h3 className="text-base font-semibold text-foreground">{artwork.title}</h3>
         <div className="mt-1 flex items-center justify-between">

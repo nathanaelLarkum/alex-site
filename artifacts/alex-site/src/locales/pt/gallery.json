@@ -1,0 +1,18 @@
+{
+  "page": {
+    "title": "Galeria",
+    "subtitle": "Uma coleção curada de obras originais explorando cor, forma e emoção."
+  },
+  "filter": {
+    "all": "Todas as Obras",
+    "finished": "Concluídas",
+    "ongoing": "Em Andamento"
+  },
+  "empty": "Nenhuma obra encontrada nesta categoria.",
+  "lightbox": {
+    "close": "Fechar lightbox",
+    "previous": "Obra anterior",
+    "next": "Próxima obra",
+    "view_aria": "Ver {title} — {size} — ${price}"
+  }
+}

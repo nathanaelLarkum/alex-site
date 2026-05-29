@@ -1,0 +1,163 @@
+You are a senior full-stack engineer working inside my existing Nexus application in Replit.
+
+Your task is to fully internationalize the application so users can toggle between English and Portuguese using the language toggle already present in the navigation.
+
+This must be production-quality architecture, scalable, maintainable, and consistent across the entire app.
+
+IMPORTANT RULES:
+- Do NOT hardcode translations inline throughout components.
+- Do NOT duplicate entire pages unnecessarily.
+- Do NOT break existing functionality.
+- Do NOT change application logic unless required for localization.
+- Preserve styling, layout, spacing, animations, and responsiveness.
+- Preserve all routes and APIs.
+- Preserve TypeScript safety where applicable.
+- The app must continue to build and run successfully after changes.
+
+GOAL:
+Implement a complete bilingual system:
+- English (default)
+- Portuguese
+- Toggle instantly swaps visible language across the entire app
+
+ARCHITECTURE REQUIREMENTS:
+
+1. CREATE A CENTRALIZED I18N SYSTEM
+
+Implement a clean translation architecture.
+
+Preferred approach:
+- /src/i18n
+- /src/locales/en
+- /src/locales/pt
+
+Create:
+- translation dictionaries
+- language provider/context
+- translation hook
+
+Recommended structure:
+- common.json
+- nav.json
+- homepage.json
+- dashboard.json
+- forms.json
+- errors.json
+etc.
+
+Use modular translation files instead of one giant file.
+
+2. LANGUAGE STATE
+
+Implement:
+- global language state
+- persistence using localStorage
+- default fallback to English
+- hydration-safe implementation
+- instant UI updates without reload
+
+The language toggle in the navbar must:
+- switch language globally
+- update all visible text immediately
+- persist between sessions
+
+3. TRANSLATION STRATEGY
+
+Replace ALL user-facing text with translation keys:
+- buttons
+- labels
+- navigation
+- headings
+- descriptions
+- tooltips
+- modals
+- forms
+- placeholders
+- validation messages
+- empty states
+- toast notifications
+- onboarding text
+- settings pages
+- dashboard content
+- landing pages
+- auth pages
+- footers
+- metadata where appropriate
+
+No visible English strings should remain hardcoded in components unless intentional.
+
+4. PORTUGUESE TRANSLATIONS
+
+Generate high-quality natural Portuguese translations.
+
+Requirements:
+- Use modern Brazilian Portuguese unless the app clearly targets Portugal.
+- Keep tone consistent with the app branding.
+- Preserve technical meaning.
+- Preserve concise UX wording.
+- Avoid machine-translated awkward phrasing.
+
+5. COMPONENT REFACTORING
+
+Refactor components cleanly:
+- remove inline static text
+- replace with translation hook usage
+- avoid excessive rerenders
+- keep components readable
+
+Preferred usage:
+- t("nav.home")
+- t("dashboard.title")
+
+6. ROUTING + SEO
+
+If applicable:
+- support localized metadata/titles
+- ensure routing does not break
+- preserve SPA behavior
+- preserve auth state
+
+Do NOT create duplicate route trees unless necessary.
+
+7. ERROR HANDLING
+
+Ensure:
+- missing translation keys fail gracefully
+- English fallback exists
+- app never crashes due to missing translation data
+
+8. PERFORMANCE
+
+Avoid:
+- giant bundled translation objects
+- unnecessary rerenders
+- inefficient context usage
+
+Prefer scalable patterns.
+
+9. FINAL VALIDATION
+
+After implementation:
+- scan the app for remaining hardcoded user-facing strings
+- test every major page
+- test language persistence
+- test toggle behavior
+- ensure no hydration issues
+- ensure mobile UI still works
+- ensure all imports/types compile correctly
+
+10. OUTPUT REQUIREMENTS
+
+At the end:
+- summarize all architectural changes
+- list new files created
+- list components refactored
+- explain how to add future languages
+- explain how translations are organized
+
+IMPORTANT:
+This is a complex Nexus app with many interconnected components. Be careful, methodical, and architecture-first.
+
+Do NOT implement a simplistic proof-of-concept.
+
+Implement a complete production-ready bilingual localization system across the entire application.

@@ -1,0 +1,1 @@
+- [i18n architecture](i18n-architecture.md) — custom context-based i18n, no external library, EN/PT with localStorage persistence

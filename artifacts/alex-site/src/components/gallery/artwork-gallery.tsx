@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ArtworkCard } from "./artwork-card"
 import { Lightbox } from "./lightbox"
 import type { Artwork } from "@/lib/artwork-data"
+import { useI18n } from "@/i18n"
 
 interface ArtworkGalleryProps {
   artworks: Artwork[]
@@ -11,6 +12,7 @@ interface ArtworkGalleryProps {
 type CategoryFilter = "all" | "finished" | "ongoing"
 
 export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
+  const { t } = useI18n()
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null)
   const [filter, setFilter] = useState<CategoryFilter>("all")
 
@@ -24,21 +26,18 @@ export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
     : -1
 
   const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setSelectedArtwork(filteredArtworks[currentIndex - 1])
-    }
+    if (currentIndex > 0) setSelectedArtwork(filteredArtworks[currentIndex - 1])
   }
 
   const handleNext = () => {
-    if (currentIndex < filteredArtworks.length - 1) {
+    if (currentIndex < filteredArtworks.length - 1)
       setSelectedArtwork(filteredArtworks[currentIndex + 1])
-    }
   }
 
   const filterOptions: { label: string; value: CategoryFilter }[] = [
-    { label: "All Works", value: "all" },
-    { label: "Finished", value: "finished" },
-    { label: "Ongoing", value: "ongoing" },
+    { label: t("gallery.filter.all"), value: "all" },
+    { label: t("gallery.filter.finished"), value: "finished" },
+    { label: t("gallery.filter.ongoing"), value: "ongoing" },
   ]
 
   return (
@@ -79,7 +78,7 @@ export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
       {/* Empty state */}
       {filteredArtworks.length === 0 && (
         <div className="py-16 text-center">
-          <p className="text-lg text-l6">No artworks found in this category.</p>
+          <p className="text-lg text-l6">{t("gallery.empty")}</p>
         </div>
       )}
 

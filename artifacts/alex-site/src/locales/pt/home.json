@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title_line1": "Onde a Arte",
+    "title_line2": "Encontra a Visão",
+    "subtitle": "Expressionismo abstrato contemporâneo explorando as fronteiras entre cor, forma e emoção.",
+    "cta_gallery": "Ver Galeria",
+    "cta_about": "Saiba Mais"
+  },
+  "about": {
+    "eyebrow": "Sobre a Artista",
+    "name": "Elena Vasquez",
+    "bio1": "Nascida em Barcelona, Elena Vasquez passou mais de duas décadas explorando a interação entre luz, cor e emoção humana. Seu trabalho foi exposto em galerias por toda a Europa e América do Norte, conquistando reconhecimento crítico por sua abordagem ousada e ao mesmo tempo íntima do expressionismo abstrato.",
+    "bio2": "Cada peça convida os espectadores a um diálogo com suas próprias percepções, desafiando os limites entre o visível e o sentido.",
+    "portrait_placeholder": "Retrato da Artista"
+  },
+  "contact": {
+    "eyebrow": "Entre em Contato",
+    "title": "Encomende uma Obra",
+    "description": "Interessado em adquirir uma peça ou encomendar uma obra original? Entre em contato para discutir sua visão.",
+    "cta": "Contatar Estúdio"
+  }
+}

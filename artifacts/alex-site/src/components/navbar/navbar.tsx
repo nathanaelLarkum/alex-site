@@ -6,17 +6,18 @@ import { MobileMenu } from "./mobile-menu"
 import { LanguageToggle } from "./language-toggle"
 import { cn } from "@/lib/utils"
 import { Link } from "wouter"
+import { useI18n } from "@/i18n"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
+  const { t } = useI18n()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50)
   })
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden"
@@ -51,7 +52,6 @@ export function Navbar() {
             role="navigation"
             aria-label="Main navigation"
           >
-            {/* Logo / Artist Name */}
             <Link
               href="/"
               className={cn(
@@ -62,24 +62,20 @@ export function Navbar() {
               )}
             >
               <span className="relative">
-                Elena Vasquez
+                {t("nav.logo")}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-l1 transition-all duration-300 group-hover:w-full" />
               </span>
             </Link>
 
-            {/* Desktop Navigation - Centered */}
             <div className="hidden lg:flex lg:flex-1 lg:justify-center">
               <NavLinks />
             </div>
 
-            {/* Right side - Language Toggle + Cart placeholder */}
             <div className="hidden lg:flex lg:items-center lg:gap-6">
               <LanguageToggle />
-              {/* Cart placeholder for future use */}
               <div className="w-10" aria-hidden="true" />
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className={cn(
@@ -88,7 +84,7 @@ export function Navbar() {
                 "transition-colors duration-300",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l1"
               )}
-              aria-label="Open menu"
+              aria-label={t("nav.open_menu")}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
             >
@@ -98,7 +94,6 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
