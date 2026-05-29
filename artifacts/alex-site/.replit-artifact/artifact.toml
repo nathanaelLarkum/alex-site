@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Artist Portfolio Gallery"
+version = "1.0.0"
+id = "artifacts/alex-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21392
+
+[services.development]
+run = "pnpm --filter @workspace/alex-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alex-site", "run", "build" ]
+publicDir = "artifacts/alex-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21392"
+BASE_PATH = "/"
