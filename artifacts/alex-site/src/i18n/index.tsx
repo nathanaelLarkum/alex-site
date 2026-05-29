@@ -11,11 +11,13 @@ import enNav from "@/locales/en/nav.json"
 import enHome from "@/locales/en/home.json"
 import enGallery from "@/locales/en/gallery.json"
 import enCommon from "@/locales/en/common.json"
+import enArtworks from "@/locales/en/artworks.json"
 
 import ptNav from "@/locales/pt/nav.json"
 import ptHome from "@/locales/pt/home.json"
 import ptGallery from "@/locales/pt/gallery.json"
 import ptCommon from "@/locales/pt/common.json"
+import ptArtworks from "@/locales/pt/artworks.json"
 
 export type Language = "en" | "pt"
 
@@ -27,12 +29,14 @@ const locales = {
     home: enHome,
     gallery: enGallery,
     common: enCommon,
+    artworks: enArtworks,
   },
   pt: {
     nav: ptNav,
     home: ptHome,
     gallery: ptGallery,
     common: ptCommon,
+    artworks: ptArtworks,
   },
 } as const
 

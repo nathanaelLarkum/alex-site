@@ -125,7 +125,7 @@ export function Lightbox({
               <h2 className="text-2xl font-bold text-foreground">{artwork.title}</h2>
               <p className="text-sm text-l6">{artwork.size}</p>
               <p className="text-base leading-relaxed text-foreground/80">
-                {artwork.description}
+                {t(`artworks.${artwork.id}.description`)}
               </p>
               <div className="mt-auto border-t border-l5 pt-4">
                 <p className="text-2xl font-semibold text-l1">
