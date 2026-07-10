@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw artwork photo dump (seed data for the admin portal / Supabase Storage,
+# not meant to ship as static site assets)
+/public/PHOTOS SITE/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

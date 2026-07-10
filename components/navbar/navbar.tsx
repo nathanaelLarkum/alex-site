@@ -64,7 +64,7 @@ export function Navbar() {
               )}
             >
               <span className="relative">
-                Elena Vasquez
+                Fingertips
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-l1 transition-all duration-300 group-hover:w-full" />
               </span>
             </Link>

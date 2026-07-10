@@ -1,48 +1,46 @@
 "use client"
 
-import { useState } from "react"
 import { cn } from "@/lib/utils"
-
-type Language = "EN" | "PT"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface LanguageToggleProps {
   className?: string
 }
 
 export function LanguageToggle({ className }: LanguageToggleProps) {
-  const [language, setLanguage] = useState<Language>("EN")
+  const { language, setLanguage } = useLanguage()
 
   return (
-    <div 
+    <div
       className={cn("flex items-center gap-2 text-sm font-light", className)}
       role="group"
       aria-label="Language selection"
     >
       <button
-        onClick={() => setLanguage("EN")}
+        onClick={() => setLanguage("en")}
         className={cn(
           "px-2 py-1 rounded transition-all duration-300",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l1",
-          language === "EN"
+          language === "en"
             ? "text-l1 font-medium"
             : "text-foreground/60 hover:text-foreground"
         )}
-        aria-pressed={language === "EN"}
+        aria-pressed={language === "en"}
         aria-label="English"
       >
         EN
       </button>
       <span className="text-l5" aria-hidden="true">/</span>
       <button
-        onClick={() => setLanguage("PT")}
+        onClick={() => setLanguage("pt")}
         className={cn(
           "px-2 py-1 rounded transition-all duration-300",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-l1",
-          language === "PT"
+          language === "pt"
             ? "text-l1 font-medium"
             : "text-foreground/60 hover:text-foreground"
         )}
-        aria-pressed={language === "PT"}
+        aria-pressed={language === "pt"}
         aria-label="Portuguese"
       >
         PT

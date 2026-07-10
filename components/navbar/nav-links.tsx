@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface NavLinksProps {
   className?: string
@@ -10,15 +11,16 @@ interface NavLinksProps {
   isMobile?: boolean
 }
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/#contact", label: "Contact" },
-]
-
 export function NavLinks({ className, onClick, isMobile = false }: NavLinksProps) {
   const pathname = usePathname()
+  const { t } = useLanguage()
+
+  const links = [
+    { href: "/", label: t.nav.home },
+    { href: "/about", label: t.nav.about },
+    { href: "/gallery", label: t.nav.gallery },
+    { href: "/#contact", label: t.nav.contact },
+  ]
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes("#")) {

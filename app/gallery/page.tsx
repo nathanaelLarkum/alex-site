@@ -1,8 +1,11 @@
 import { ArtworkGallery } from "@/components/gallery"
-import { artworks } from "@/lib/artwork-data"
+import { getArtworks } from "@/lib/artworks"
 import { Navbar } from "@/components/navbar"
+import { FooterCopyright } from "@/components/footer-copyright"
 
-export default function Home() {
+export default async function Home() {
+  const artworks = await getArtworks()
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -20,7 +23,7 @@ export default function Home() {
       <footer className="border-t border-l5 bg-l4">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <p className="text-center text-sm text-l6">
-            © {new Date().getFullYear()} Artist Portfolio. All rights reserved.
+            <FooterCopyright />
           </p>
         </div>
       </footer>

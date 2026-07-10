@@ -4,15 +4,17 @@ import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { ArtworkCard } from "./artwork-card"
 import { Lightbox } from "./lightbox"
-import type { Artwork } from "@/lib/artwork-data"
+import type { Artwork } from "@/lib/artworks"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 interface ArtworkGalleryProps {
   artworks: Artwork[]
 }
 
-type CategoryFilter = "all" | "finished" | "ongoing"
+type CategoryFilter = "all" | "finished" | "unfinished"
 
 export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
+  const { t } = useLanguage()
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null)
   const [filter, setFilter] = useState<CategoryFilter>("all")
 
@@ -38,9 +40,9 @@ export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
   }
 
   const filterOptions: { label: string; value: CategoryFilter }[] = [
-    { label: "All Works", value: "all" },
-    { label: "Finished", value: "finished" },
-    { label: "Ongoing", value: "ongoing" },
+    { label: t.gallery.all, value: "all" },
+    { label: t.gallery.finished, value: "finished" },
+    { label: t.gallery.unfinished, value: "unfinished" },
   ]
 
   return (
@@ -81,7 +83,7 @@ export function ArtworkGallery({ artworks }: ArtworkGalleryProps) {
       {/* Empty state */}
       {filteredArtworks.length === 0 && (
         <div className="py-16 text-center">
-          <p className="text-lg text-l6">No artworks found in this category.</p>
+          <p className="text-lg text-l6">{t.gallery.empty}</p>
         </div>
       )}
 
