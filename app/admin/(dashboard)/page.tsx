@@ -11,6 +11,11 @@ import {
 } from "@/components/ui/table"
 import { DeleteArtworkButton } from "@/components/admin/delete-artwork-button"
 
+// Authenticated, per-admin page — always render fresh, and never let it be
+// prerendered at build time (an internal page shouldn't be able to fail the
+// whole site's build if Supabase is briefly unreachable during a deploy).
+export const dynamic = "force-dynamic"
+
 export default async function AdminDashboardPage() {
   const artworks = await getArtworks()
 
