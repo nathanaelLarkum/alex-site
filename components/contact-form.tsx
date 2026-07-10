@@ -23,7 +23,11 @@ export function ContactForm() {
     const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
 
     try {
-      const response = await fetch("/", {
+      // Netlify's Next.js Runtime (OpenNext-based) can't scan this live,
+      // server-rendered page for forms at build time, so detection instead
+      // happens via the static public/__forms.html file, and submissions
+      // are posted there too. See public/__forms.html.
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm(data),
@@ -43,9 +47,6 @@ export function ContactForm() {
   return (
     <form
       name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="mt-12 mx-auto flex max-w-md flex-col gap-4 text-left"
     >
